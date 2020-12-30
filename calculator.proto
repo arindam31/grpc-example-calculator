@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message Number {
+    int32 value = 1;
+}
+
+message NumList {
+    string name = 1;
+    repeated Number nums = 2;
+}
+
+service Calculator {
+    rpc Multiplier(NumList) returns (Number) {}
+    rpc Square(Number) returns (Number) {}
+}
