@@ -24,6 +24,11 @@ class CalculatorStub(object):
                 request_serializer=calculator__pb2.Number.SerializeToString,
                 response_deserializer=calculator__pb2.Number.FromString,
                 )
+        self.SquareRoot = channel.unary_unary(
+                '/Calculator/SquareRoot',
+                request_serializer=calculator__pb2.Number.SerializeToString,
+                response_deserializer=calculator__pb2.Float.FromString,
+                )
 
 
 class CalculatorServicer(object):
@@ -41,6 +46,12 @@ class CalculatorServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SquareRoot(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CalculatorServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -53,6 +64,11 @@ def add_CalculatorServicer_to_server(servicer, server):
                     servicer.Square,
                     request_deserializer=calculator__pb2.Number.FromString,
                     response_serializer=calculator__pb2.Number.SerializeToString,
+            ),
+            'SquareRoot': grpc.unary_unary_rpc_method_handler(
+                    servicer.SquareRoot,
+                    request_deserializer=calculator__pb2.Number.FromString,
+                    response_serializer=calculator__pb2.Float.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -95,5 +111,22 @@ class Calculator(object):
         return grpc.experimental.unary_unary(request, target, '/Calculator/Square',
             calculator__pb2.Number.SerializeToString,
             calculator__pb2.Number.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SquareRoot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Calculator/SquareRoot',
+            calculator__pb2.Number.SerializeToString,
+            calculator__pb2.Float.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
