@@ -36,3 +36,8 @@ assert len(num_list.nums) == 3
 
 response = stub.Multiplier(num_list)
 print(response.value)
+
+# ******* Testing our square root function **********
+num_for_sqr_root = calculator_pb2.Number(value=121)
+response = stub.SquareRoot(num_for_sqr_root)
+print(response.value)

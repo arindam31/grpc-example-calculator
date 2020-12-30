@@ -1,19 +1,32 @@
-#
-
 import math
 
 
-def square(num):
+def square(num: int) -> int:
+    """Function for calculating square
+
+    :param num
+    :return int
+    """
     res = num * num
     return res
 
 
-def square_root(num):
+def square_root(num: int) -> float:
+    """Function for calculating squareroot
+
+    :param num int
+    :return int
+    """
     res = math.sqrt(num)
     return res
 
 
-def multiplier(numlist, name):
+def multiplier(numlist: list, name: str):
+    """Function for multiplying all numbers in a list
+
+    :param numlist list
+    :return int/float
+    """
     mul = 1
     for num in numlist:
         mul = mul * num.value

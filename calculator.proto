@@ -4,6 +4,10 @@ message Number {
     int32 value = 1;
 }
 
+message Float{
+    float value = 1;
+}
+
 message NumList {
     string name = 1;
     repeated Number nums = 2;
@@ -12,4 +16,5 @@ message NumList {
 service Calculator {
     rpc Multiplier(NumList) returns (Number) {}
     rpc Square(Number) returns (Number) {}
+    rpc SquareRoot(Number) returns (Float) {}
 }
