@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+
 message Number {
     int32 value = 1;
 }
@@ -19,3 +20,4 @@ service Calculator {
     rpc SquareRoot(Number) returns (Float) {}
     rpc CountLists(Number) returns (Float) {}
 }
+
