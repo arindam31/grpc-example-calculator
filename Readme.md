@@ -17,3 +17,10 @@
 ### To create python files from proto file:
 
 `python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. calculator.proto`
+
+### To perform a load test using Locust.
+
+- On terminal: `locust -f test_calculator.py`
+- Launch on Browser: http://0.0.0.0:8089
+- Enter no of users per sec and no of users, and host: http://localhost:8787
+- Start Swarm
