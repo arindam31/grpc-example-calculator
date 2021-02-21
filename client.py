@@ -1,8 +1,8 @@
 import grpc
 
 # import the generated classes
-import calculator_pb2
-import calculator_pb2_grpc
+import proto.calculator_pb2 as calculator_pb2
+import proto.calculator_pb2_grpc as calculator_pb2_grpc
 
 # ******* Testing our square calculator function **********
 

@@ -17,4 +17,5 @@ service Calculator {
     rpc Multiplier(NumList) returns (Number) {}
     rpc Square(Number) returns (Number) {}
     rpc SquareRoot(Number) returns (Float) {}
+    rpc CountLists(Number) returns (Float) {}
 }
